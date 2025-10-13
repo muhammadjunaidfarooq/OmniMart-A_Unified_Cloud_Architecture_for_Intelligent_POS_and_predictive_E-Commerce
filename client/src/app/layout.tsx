@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -23,10 +24,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="light" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(() => {
+  try {
+    const storageKey = 'theme';
+    const stored = localStorage.getItem(storageKey);
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = stored ?? (prefersDark ? 'dark' : 'light');
+    const root = document.documentElement;
+    root.setAttribute('data-theme', theme);
+    root.classList.remove(theme === 'dark' ? 'light' : 'dark');
+    root.classList.add(theme);
+  } catch {}
+})();`,
+          }}
+        />
         {children}
       </body>
     </html>
