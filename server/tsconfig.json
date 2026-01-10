@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    /* File structure */
+    "outDir": "./dist",
+
+    /* Language & Environment */
+    "target": "ES2020",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+
+    /* Node.js support */
+    "types": ["node"],
+
+    /* Type checking */
+    "strict": true,
+
+    /* Optional useful features */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    /* Extra safety */
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true
+  },
+  "include": ["src", "prisma"],
+  "exclude": ["node_modules", "dist"]
+}

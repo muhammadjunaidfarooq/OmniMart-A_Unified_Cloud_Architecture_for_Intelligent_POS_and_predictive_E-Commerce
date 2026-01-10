@@ -73,7 +73,7 @@ const Sidebar = () => {
             isSidebarCollapsed ? "hidden" : "block"
           } font-extrabold text-2xl`}
         >
-          FOREVER
+          GEO
         </h1>
 
         <button
